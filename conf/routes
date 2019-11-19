@@ -1,0 +1,49 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# User API
+POST    /v1/user/add                controllers.UserController.insert()
+
+GET     /v1/user                    controllers.UserController.all()
+
+GET     /v1/user/:id                controllers.UserController.read(id)
+
+PATCH   /v1/user/:id                controllers.UserController.update(id)
+
+DELETE  /v1/user/delete             controllers.UserController.deleteAll()
+
+DELETE  /v1/user/delete/:id         controllers.UserController.delete(id)
+
+# Product API
+POST    /v1/product/add             controllers.ProductController.insert()
+
+GET     /v1/product                 controllers.ProductController.all()
+
+GET     /v1/product/:id             controllers.ProductController.read(id)
+
+PATCH   /v1/product/:id             controllers.ProductController.update(id)
+
+DELETE  /v1/product/delete          controllers.ProductController.deleteAll()
+
+DELETE  /v1/product/delete/:id      controllers.ProductController.delete(id)
+
+# Shopping Cart API
+POST    /v1/cart/add                controllers.ShoppingCartController.insert()
+
+GET     /v1/cart                    controllers.ShoppingCartController.all()
+
+GET     /v1/cart/:id                controllers.ShoppingCartController.read(id)
+
+PATCH   /v1/cart/:id                controllers.ShoppingCartController.update(id)
+
+DELETE  /v1/cart/delete             controllers.ShoppingCartController.deleteAll()
+
+DELETE  /v1/cart/delete/:id         controllers.ShoppingCartController.delete(id)
