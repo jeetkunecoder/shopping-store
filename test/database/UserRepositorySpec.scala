@@ -21,9 +21,9 @@ class UserRepositorySpec extends PlaySpec with ScalaFutures with GuiceOneAppPerS
     val repository = cache(app)
 
     "Ensure that the tested value doesn't exist on application start" in {
-      val futureDelete = repository.delete("userId")
+      val futureDelete = repository.delete("123")
       whenReady(Future(futureDelete)) { _ =>
-        repository.read("userId").futureValue shouldBe empty
+        repository.read("123").futureValue shouldBe empty
       }
     }
 
@@ -33,20 +33,8 @@ class UserRepositorySpec extends PlaySpec with ScalaFutures with GuiceOneAppPerS
       val futureInsert = repository.insert(user)
 
       whenReady(Future(futureInsert)) { _ =>
-        repository.read("userId").futureValue shouldBe expected
+        repository.read("123").futureValue shouldBe expected
       }
-    }
-
-    "Update an user in the DB" in {
-
-    }
-
-    "Get a user from the DB" in {
-
-    }
-
-    "Delete an user from the DB" in {
-
     }
   }
 }

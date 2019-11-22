@@ -38,7 +38,7 @@ class ProductRepository @Inject()(implicit executionContext: ExecutionContext) {
     p.code === product.code
   }
 
-  def delete(code: String) = db.run(products.filter(_. code === code).delete)
+  def delete(code: String) = db.run(products.filter(_.code === code).delete)
 
   def deleteAll(): Future[Int] = db.run(products.delete)
 }

@@ -12,6 +12,10 @@ class ShoppingCartService @Inject()(shoppingCartRepository: ShoppingCartReposito
     shoppingCartRepository.read(id)
   }
 
+  def checkout(user: String): Future[Seq[ShoppingCart]] = {
+    shoppingCartRepository.checkout(user)
+  }
+
   def readAll(): Future[Seq[ShoppingCart]] = {
     shoppingCartRepository.readAll()
   }

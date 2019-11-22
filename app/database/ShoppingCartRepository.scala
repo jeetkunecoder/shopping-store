@@ -31,6 +31,8 @@ class ShoppingCartRepository @Inject()(implicit executionContext: ExecutionConte
 
   def read(productCode: String): Future[Seq[ShoppingCart]] = db.run(carts.filter(_.productCode === productCode).result)
 
+  def checkout(user: String): Future[Seq[ShoppingCart]] = db.run(carts.filter(_.user === user).result)
+
   def update(code: String, shoppingCart: ShoppingCart) = ??? // db.run(properties.update().result)
 
   private def matchKey(s: ShoppingCartTable, shoppingCart: ShoppingCart): Rep[Boolean] = {

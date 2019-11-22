@@ -33,14 +33,7 @@ class UserRepository @Inject()(implicit executionContext: ExecutionContext) {
 
   def read(id: String): Future[Seq[User]] = db.run(users.filter(_.id === id).result)
 
-  def update(id: String, user: User) = ??? // db.run(properties.update().result)
-
-  //  def update(cart: Cart): Future[Int] = {
-  //    val q = for {
-  //      p <- properties if p.id === property.id
-  //    } yield p.quantity
-  //    db.run(q.update(cart.quantity))
-  //  }
+  def update(id: String, user: User) = ???
 
   private def matchKey(u: UserTable, user: User): Rep[Boolean] = {
     u.id === user.id

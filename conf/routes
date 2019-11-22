@@ -42,6 +42,8 @@ GET     /v1/cart                    controllers.ShoppingCartController.all()
 
 GET     /v1/cart/:id                controllers.ShoppingCartController.read(id)
 
+GET     /v1/cart/checkout/:user     controllers.ShoppingCartController.checkout(user)
+
 PATCH   /v1/cart/:id                controllers.ShoppingCartController.update(id)
 
 DELETE  /v1/cart/delete             controllers.ShoppingCartController.deleteAll()

@@ -18,6 +18,12 @@ class ShoppingCartController @Inject()(cc: ControllerComponents, shoppingCartSer
     }.recover(recoverError)
   }
 
+  def checkout(user: String): Action[AnyContent] = Action.async { implicit request =>
+    shoppingCartService.checkout(user).map {
+      cart => Ok(Json.toJson(cart))
+    }.recover(recoverError)
+  }
+
   def all(): Action[AnyContent] = Action.async { implicit request =>
     shoppingCartService.readAll().map {
       cart => Ok(Json.toJson(cart))
